@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 19:19:40 by fakman            #+#    #+#             */
-/*   Updated: 2023/02/24 19:19:40 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/02 08:25:40 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/02 08:25:41 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str)
 	}
 	while ((ft_isdigit(str[i]) == 1) && (str[i] != '\0'))
 		result = result * 10 + (str[i++] - 48);
-	if (result > LONG_MAX)
+	if (result > 2147483647)
 	{
 		if (sign == -1)
 			return (0);

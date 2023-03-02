@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_peek.c                                    :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 08:26:28 by fakman            #+#    #+#             */
-/*   Updated: 2023/03/02 08:26:29 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/02 08:24:24 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/02 08:24:25 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_stack	*ft_stack_peek(t_stack **root)
+void	init(t_stack **stack, char **args)
 {
-	t_stack	*r_val;
+	int		i;
 
-	if (*root == NULL)
+	i = 1;
+	while (args[i])
 	{
-		ft_printf("Stack is empty!");
-		return (NULL);
+		ft_stack_push(stack, ft_stack_new(ft_atoi(args[i])));
+		i++;
 	}
-	r_val = (t_stack *)malloc(sizeof(t_stack));
-	r_val->num = (*root)->num;
-	r_val->tag = (*root)->tag;
-	r_val->next = (*root)->next;
-	return (r_val);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		exit(ft_printf("Error\ntoo few arguments!"));
+	num_control(argv);
+	init(&a, argv);
 }
