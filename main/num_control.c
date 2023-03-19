@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 08:24:19 by fakman            #+#    #+#             */
-/*   Updated: 2023/03/02 08:24:20 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:20:45 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:20:46 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	is_larger(const char *str)
 {
 	int				i;
 	int				sign;
-	long	result;
+	long			result;
 
 	sign = 1;
 	result = 0;
@@ -97,7 +97,7 @@ void	num_control(char **nums)
 	while (nums[i])
 	{
 		if (!is_larger(nums[i]))
-			exit(ft_printf("Error\nYour arguments are larger than integer!"));
+			exit(ft_printf("Error\narguments are larger or smaller than int!"));
 		i++;
 	}
 }

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 19:22:07 by fakman            #+#    #+#             */
-/*   Updated: 2023/02/24 19:22:07 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:23:25 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:23:26 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_stack	*ft_stack_new(int num)
+t_stack	*ft_stack_new(int num, int tag, int index)
 {
 	t_stack	*new;
 
@@ -20,7 +20,8 @@ t_stack	*ft_stack_new(int num)
 	if (!new)
 		return (NULL);
 	new->num = num;
-	new->tag = 0;
+	new->tag = tag;
+	new->index = index;
 	new->next = NULL;
 	return (new);
 }

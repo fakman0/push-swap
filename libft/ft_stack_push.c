@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 19:22:18 by fakman            #+#    #+#             */
-/*   Updated: 2023/02/24 19:22:18 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:23:03 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:23:04 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_stack_push(t_stack **root, t_stack *new)
 {

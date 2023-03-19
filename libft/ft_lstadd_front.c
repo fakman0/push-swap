@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 19:20:37 by fakman            #+#    #+#             */
-/*   Updated: 2023/02/24 19:20:37 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:25:25 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:25:29 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
-//new -> next Listenin 1. elemanı yaptı
-//*lst = new yapmazsak listenin yeni ilk elemanını değil, 
-//eski ilk elemanını gösterir. 

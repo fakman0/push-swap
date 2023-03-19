@@ -5,36 +5,29 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/19 08:21:14 by fakman            #+#    #+#              #
-#    Updated: 2023/03/19 08:21:15 by fakman           ###   ########.fr        #
+#    Created: 2023/03/19 08:19:56 by fakman            #+#    #+#              #
+#    Updated: 2023/03/19 08:19:57 by fakman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= libft.a
+NAME = push_swap
+PUSH_SWAP_FILES = $(shell find . -name "*.c")
 
-CC		:= gcc
-CFLAGS	:= -Wall -Wextra -Werror
-
-FILES	:= $(shell find . -type f ! -name "ft_lst*.c" -name "ft_*.c")
-OBJ		:= $(FILES:%.c=%.o)
-
-BSRC	:= $(shell find . -type f -name "ft_lst*.c")
-B_OBJ	:= $(BSRC:%.c=%.o)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
-
-bonus: $(OBJ) $(B_OBJ)
-	ar -rcs $(NAME) $(OBJ) $(B_OBJ)
+all: 
+	@make -C ./libft
+	@mv ./libft/libft.a main
+	@gcc -Wall -Wextra -Werror $(PUSH_SWAP_FILES) ./main/libft.a -o $(NAME)
+	@echo "✅"
 
 clean:
-	@rm -f *.o
+	@rm -rf ./libft/*.o
+	@rm -rf ./main/libft.a
+	@echo "🗑️"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -rf push_swap
 
 re: fclean all
 
-.PHONY: all clean fclean re
+norm:
+	norminette

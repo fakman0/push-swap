@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   index_finder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 08:22:43 by fakman            #+#    #+#             */
-/*   Updated: 2023/03/19 08:22:44 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:21:04 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:21:05 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	index_finder(t_stack **root)
 {
-	size_t	i;
+	int			i;
+	t_stack		*tmp;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (i < ft_strlen(s))
-	{	
-		f(i, &s[i]);
+	i = 1;
+	tmp = *root;
+	while (tmp)
+	{
+		tmp->index = i;
+		tmp = tmp->next;
 		i++;
 	}
 }

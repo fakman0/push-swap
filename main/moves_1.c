@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 19:24:20 by fakman            #+#    #+#             */
-/*   Updated: 2023/02/24 19:24:20 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:20:58 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:20:59 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_swap(t_stack **root, char opt)
 		ft_printf("sa\n");
 	else if (opt == 'b')
 		ft_printf("sb\n");
+	index_finder(root);
 }
 
 void	ft_ss(t_stack **root_a, t_stack **root_b)
@@ -35,26 +36,31 @@ void	ft_ss(t_stack **root_a, t_stack **root_b)
 	if (*root_b != NULL && (*root_b)->next != NULL)
 		ft_swap(root_b, '0');
 	ft_printf("ss\n");
+	index_finder(root_a);
+	index_finder(root_b);
 }
 
-void	ft_push(t_stack **root_a, t_stack **root_b, char opt)
+void	ft_push(t_stack **a, t_stack **b, char opt)
 {
 	t_stack	*push_val;
 
+	push_val = NULL;
 	if (opt == 'a')
 	{
-		push_val = ft_stack_new((*root_b)->num);
-		ft_stack_push(root_a, push_val);
-		ft_stack_pop(root_b);
+		push_val = ft_stack_new((*b)->num, (*b)->tag, (*b)->index);
+		ft_stack_push(a, push_val);
+		ft_stack_pop(b);
 		ft_printf("pa\n");
 	}
 	else if (opt == 'b')
 	{
-		push_val = ft_stack_new((*root_a)->num);
-		ft_stack_push(root_b, push_val);
-		ft_stack_pop(root_a);
+		push_val = ft_stack_new((*a)->num, (*a)->tag, (*a)->index);
+		ft_stack_push(b, push_val);
+		ft_stack_pop(a);
 		ft_printf("pb\n");
 	}
+	index_finder(a);
+	index_finder(b);
 }
 
 void	ft_rotate(t_stack **root, char opt)
@@ -65,7 +71,7 @@ void	ft_rotate(t_stack **root, char opt)
 	if (*root == NULL || (*root)->next == NULL)
 		return ;
 	tmp = (*root)->next;
-	rt_val = ft_stack_new((*root)->num);
+	rt_val = ft_stack_new((*root)->num, (*root)->tag, (*root)->index);
 	ft_stack_pop(root);
 	*root = tmp;
 	while (tmp->next != NULL)
@@ -75,6 +81,7 @@ void	ft_rotate(t_stack **root, char opt)
 		ft_printf("ra\n");
 	else if (opt == 'b')
 		ft_printf("rb\n");
+	index_finder(root);
 }
 
 void	ft_rr(t_stack **root_a, t_stack **root_b)
@@ -84,4 +91,6 @@ void	ft_rr(t_stack **root_a, t_stack **root_b)
 	if (*root_b != NULL && (*root_b)->next != NULL)
 		ft_rotate(root_b, '0');
 	ft_printf("rr\n");
+	index_finder(root_a);
+	index_finder(root_b);
 }

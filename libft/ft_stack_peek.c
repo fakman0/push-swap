@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fakman <fakman@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 08:26:28 by fakman            #+#    #+#             */
-/*   Updated: 2023/03/02 08:26:29 by fakman           ###   ########.fr       */
+/*   Created: 2023/03/19 08:23:20 by fakman            #+#    #+#             */
+/*   Updated: 2023/03/19 08:23:21 by fakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack	*ft_stack_peek(t_stack **root)
 	r_val = (t_stack *)malloc(sizeof(t_stack));
 	r_val->num = (*root)->num;
 	r_val->tag = (*root)->tag;
+	r_val->index = (*root)->index;
 	r_val->next = (*root)->next;
 	return (r_val);
 }
